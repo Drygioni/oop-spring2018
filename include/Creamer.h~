@@ -1,0 +1,5 @@
+#pragma once
+
+namespace coffeemug{
+  enum CreamerLevel{NOCREAMER, HALFNHALF, HEAVYCREAM};
+}

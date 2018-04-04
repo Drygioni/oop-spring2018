@@ -1,0 +1,1 @@
+/usr/bin/c++        -o bin/testCoffeeMug -lpthread lib/libgtest.a lib/libsources.a -lpthread 

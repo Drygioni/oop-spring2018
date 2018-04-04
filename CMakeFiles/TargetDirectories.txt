@@ -1,0 +1,5 @@
+/home/jgboese/projects/CoffeeMug/CMakeFiles/edit_cache.dir
+/home/jgboese/projects/CoffeeMug/CMakeFiles/testCoffeeMug.dir
+/home/jgboese/projects/CoffeeMug/CMakeFiles/sources.dir
+/home/jgboese/projects/CoffeeMug/CMakeFiles/gtest.dir
+/home/jgboese/projects/CoffeeMug/CMakeFiles/rebuild_cache.dir

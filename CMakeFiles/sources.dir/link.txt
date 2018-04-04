@@ -1,0 +1,2 @@
+/usr/bin/ar qc lib/libsources.a  CMakeFiles/sources.dir/src/TestMain.cpp.o CMakeFiles/sources.dir/src/CoffeeMug.cpp.o CMakeFiles/sources.dir/src/TestCoffeeMug.cpp.o
+/usr/bin/ranlib lib/libsources.a
