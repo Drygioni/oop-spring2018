@@ -20,7 +20,7 @@ namespace coffeemug{
     return mugs;
   }
 
-  void CoffeeMug::setCreamer(Creamer _creamer) const{
+  void CoffeeMug::setCreamer(Creamer _creamer){
     creamer = _creamer;
   }
 
@@ -30,7 +30,7 @@ namespace coffeemug{
 
   void CoffeeMug::mugOK(int mug) const {
     if (mug < 0 || mug >= mugs) {
-      std::ostringstream oss:
+      std::ostringstream oss;
 	oss <<"mug not in range";
       throw std::out_of_range(oss.str());
     }
@@ -46,6 +46,6 @@ namespace coffeemug{
     return mugStates[mug];
   }
 
-  
+  // CoffeeMug::~CofffeeMug() {std::cerr << "cleaned up CoffeeMug" << std::endl;}
   
 }

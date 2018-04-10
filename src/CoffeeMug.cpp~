@@ -1,5 +1,4 @@
 #include "CoffeeMug.h"
-#include "Creamer.h"
 #include <iostream>
 #include <sstream>
 #include <stdexcept>
@@ -30,7 +29,7 @@ namespace coffeemug{
   }
 
   void CoffeeMug::mugOK(int mug) const {
-    if (outlet < 0 || outlet >= outlets) {
+    if (mug < 0 || mug >= mugs) {
       std::ostringstream oss:
 	oss <<"mug not in range";
       throw std::out_of_range(oss.str());
