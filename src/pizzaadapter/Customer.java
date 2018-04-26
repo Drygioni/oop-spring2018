@@ -5,12 +5,16 @@
  */
 package pizzaadapter;
 
+import java.util.logging.Logger;
+
 /**
  *
  * @author Jared Boese
  */
 public class Customer implements Pizza{
     private Pizza pizza;
+   // private static final Logger LOGGER = Logger.getLogger(Customer.class.getName());
+    public String result;
     public Customer(){
         
     }
@@ -24,6 +28,10 @@ public class Customer implements Pizza{
     @Override
     public void eat() {
         pizza.eat();
+    //    LOGGER.info("The pizza has been eaten");
+        
+        result = "The pizza has been eaten";
+        System.out.println(result);
     }
     
     

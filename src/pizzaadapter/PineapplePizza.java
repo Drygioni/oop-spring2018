@@ -13,8 +13,14 @@ import java.util.logging.Logger;
  * @author Jared Boese
  */
 public class PineapplePizza {
-    private static final Logger LOGGER = Logger.getLogger(PineapplePizza.class.getName());
+ //   private static final Logger LOGGER = Logger.getLogger(PineapplePizza.class.getName());
+    public String pResult;
     public void EatBadPizza(){
-        LOGGER.info("The Pineapple pizza has been eaten");
+     //   LOGGER.info("The Pineapple pizza has been eaten");
+        pResult = "The Pineapple pizza has been eaten";
+        System.out.println(pResult);
+    }
+    public String getResult(){
+        return pResult;
     }
 }

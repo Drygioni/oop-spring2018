@@ -9,6 +9,8 @@ package pizzaadapter;
  *
  * @author Jared Boese
  */
+
 public interface Pizza {
+    
     void eat();
 }
