@@ -10,6 +10,9 @@ package pizza;
  * @author Jared
  */
 public class Sauce {
-    enum sauce{ ALFREDO,TOMATO,BBQ,BUFFALO,GARLIC};
+
+    sauce sauce;
+    public static enum sauce{ ALFREDO,TOMATO,BBQ,BUFFALO,GARLIC};
+    
 
 }

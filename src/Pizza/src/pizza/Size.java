@@ -10,5 +10,8 @@ package pizza;
  * @author Jared
  */
 public class Size {
-        enum size{S,M,L,XL};
+
+    size size;
+
+      public static  enum size{S,M,L,XL};
 }
