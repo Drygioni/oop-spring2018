@@ -9,7 +9,7 @@ package random;
  *
  * @author Jared
  */
-public class Random {
+public class Main {
 
     /**
      * @param args the command line arguments

@@ -5,12 +5,6 @@
  */
 package random;
 
-import java.util.List;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.concurrent.ThreadLocalRandom;
-import java.util.stream.IntStream;
-
 /**
  *
  * @author Jared
@@ -20,7 +14,7 @@ public class Display extends javax.swing.JFrame {
     /**
      * Creates new form Display
      */
-    public Display() {
+    public Display()  {
         initComponents();
     }
 
@@ -274,124 +268,52 @@ public class Display extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    public enum Races {
-        Coastal_Aumaua,Island_Aumaua,Boreal_Dwarf,Mountain_Dwarf,Pale_Elf,Wood_Elf,Death_Godlike,
-        Fire_Godlike,Nature_Godlike,Moon_Godlike,Meadow_Human,Savannah_Human,Ocean_Human,Hearth_Orlan,
-        Wild_Orlan;
-    }
-    public enum Classes{
-        Barbarian,Chanter,Cipher,Druid,Fighter,Monk,Paladin,Priest,Ranger,Rogue,Wizard;
-    }
-    public void randomer(int[] rand) {
-        int count = 6;
-        int max = 57;
-        int i;
-        
-        max -= count;
-        for (i = 0; i < count - 1; i++) {
-            rand[i] = ThreadLocalRandom.current().nextInt(0, max + 1);
-        }
-        rand[count - 1] = max - rand[count - 1];
-        Arrays.sort(rand);
-        for (i = count - 1; i > 0; i--) {
-            rand[i] -= rand[i - 1];
-        }
-        //Sets the minimum to three
-        for (i = 0; i < count; i++) {
-            rand[i] += 3;
-        }
-        int total = 75 - IntStream.of(rand).sum();
-        while (total > 0) {
-            int rannum = ThreadLocalRandom.current().nextInt(0, 6);
-            rand[rannum]++;
-            total--;
-        }
-    }
-    public void randomstats(){
-                int count = 6;
-        int[] rand = new int[count];
-        do {
-            randomer(rand);
-        } while (rand[0] > 18 || rand[1] > 18 || rand[2] > 18 || rand[3] > 18 || rand[4] > 18 || rand[5] > 18);
-        System.out.println(IntStream.of(rand).sum());
-        might.setText(String.valueOf(rand[0]));
-        dex.setText(String.valueOf(rand[1]));
-        con.setText(String.valueOf(rand[2]));
-        Pers.setText(String.valueOf(rand[3]));
-        Intel.setText(String.valueOf(rand[4]));
-        resolve.setText(String.valueOf(rand[5]));
-        StatsGen.setText("Reroll Stats");
-    }
-    public void randomrace()
-    {
-        List<Enum> races = new ArrayList<>();
-        races.addAll(Arrays.asList(Races.values()));
-        int random = ThreadLocalRandom.current().nextInt(0,races.size());
-        ShowRace.setText(String.valueOf(races.get(random)));
-         Racegen.setText("Reroll Race");
-        
-        
-       
-    }
-    public void randomclass(){
-        List<Enum> classes = new ArrayList<>();
-        classes.addAll(Arrays.asList(Classes.values()));
-        int random = ThreadLocalRandom.current().nextInt(0,classes.size());
-        ShowClass.setText(String.valueOf(classes.get(random)));
-        ClassGen.setText("Reroll Class");
-    }
-    public void randomgender(){
-        Boolean random = ThreadLocalRandom.current().nextBoolean();
-        if (random == true)ShowGender.setText("Female");
-        else ShowGender.setText("Male");
-        GenGen.setText("Reroll Gender");
+    Randomizer randomizer = new Randomizer();
+    
+    public void getStats(){
+        randomizer.randomstats();
+        might.setText(String.valueOf(randomizer.getMight()));
+        dex.setText(String.valueOf(randomizer.getDex()));
+        con.setText(String.valueOf(randomizer.getCon()));
+        Pers.setText(String.valueOf(randomizer.getPers()));
+        Intel.setText(String.valueOf(randomizer.getInt()));
+        resolve.setText(String.valueOf(randomizer.getRes()));
     }
     private void StatsGenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StatsGenActionPerformed
-        // TODO add your handling code here:
-        // 57 points to distribute
-//        int count = 6;
-//        int[] rand = new int[count];
-//        do {
-//            randomer(rand);
-//        } while (rand[0] > 18 || rand[1] > 18 || rand[2] > 18 || rand[3] > 18 || rand[4] > 18 || rand[5] > 18);
-//        System.out.println(IntStream.of(rand).sum());
-//        might.setText(String.valueOf(rand[0]));
-//        dex.setText(String.valueOf(rand[1]));
-//        con.setText(String.valueOf(rand[2]));
-//        Pers.setText(String.valueOf(rand[3]));
-//        Intel.setText(String.valueOf(rand[4]));
-//        resolve.setText(String.valueOf(rand[5]));
-        randomstats();
-        
 
+        getStats();
     }//GEN-LAST:event_StatsGenActionPerformed
 
     private void RacegenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RacegenActionPerformed
         // TODO add your handling code here:
-        randomrace();
+        randomizer.randomrace();
+        
+       
+        
        
 
     }//GEN-LAST:event_RacegenActionPerformed
 
     private void ClassGenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClassGenActionPerformed
         // TODO add your handling code here:
-        randomclass();
+        randomizer.randomclass();
         
         
     }//GEN-LAST:event_ClassGenActionPerformed
 
     private void AllGenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AllGenActionPerformed
         // TODO add your handling code here:
-        randomstats();
-        randomrace();
-        randomclass();
-        randomgender();
+        getStats();
+        
+        randomizer.randomrace();
+        randomizer.randomclass();
+        randomizer.randomgender();
         AllGen.setText("Reroll All");
     }//GEN-LAST:event_AllGenActionPerformed
 
     private void GenGenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GenGenActionPerformed
         // TODO add your handling code here:
-        randomgender();
+        randomizer.randomgender();
     }//GEN-LAST:event_GenGenActionPerformed
 
     /**
@@ -430,18 +352,18 @@ public class Display extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton AllGen;
-    private javax.swing.JButton ClassGen;
-    private javax.swing.JButton GenGen;
-    private static javax.swing.JTextArea Intel;
-    private static javax.swing.JTextArea Pers;
-    private javax.swing.JButton Racegen;
-    private static javax.swing.JTextArea ShowClass;
-    private static javax.swing.JTextArea ShowGender;
-    private static javax.swing.JTextArea ShowRace;
-    private javax.swing.JButton StatsGen;
-    private static javax.swing.JTextArea con;
-    private static javax.swing.JTextArea dex;
+    public javax.swing.JButton AllGen;
+    public javax.swing.JButton ClassGen;
+    public javax.swing.JButton GenGen;
+    public static javax.swing.JTextArea Intel;
+    public static javax.swing.JTextArea Pers;
+    public javax.swing.JButton Racegen;
+    public static javax.swing.JTextArea ShowClass;
+    public static javax.swing.JTextArea ShowGender;
+    public static javax.swing.JTextArea ShowRace;
+    public javax.swing.JButton StatsGen;
+    public static javax.swing.JTextArea con;
+    public static javax.swing.JTextArea dex;
     private javax.swing.JScrollPane intel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -458,8 +380,8 @@ public class Display extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
-    private static javax.swing.JTextArea might;
+    public static javax.swing.JTextArea might;
     private javax.swing.JScrollPane per;
-    private static javax.swing.JTextArea resolve;
+    public static javax.swing.JTextArea resolve;
     // End of variables declaration//GEN-END:variables
 }
