@@ -1,0 +1,11 @@
+#pragma once
+
+#include "CoffeeMug.h"
+#include "Drinkeable.h"
+
+http://youtu.be/N_IqZbXu4oQnamespace CoffeeMug{
+  Drinkeable::Drinkeable() : drinkeable(false){
+    std::cout<< "Drank " <<((void*) this)<< std::endl;
+  }
+  
+}

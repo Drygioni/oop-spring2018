@@ -1,0 +1,10 @@
+#pragma once
+
+namespace coffeemug{
+  class Drinkeable{
+  public: Drinkeable();
+  public: virtual void drink();
+  public: virtual void spitout();
+  public: virtual ~Drinkeable();
+  };
+}
